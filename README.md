@@ -190,7 +190,7 @@ We value flexibility, which is why there are multiple ways of using TypeSchema:
     <td align="center">✅</td>
     <td align="center">✅</td>
     <td align="center">✅</td>
-    <td align="center">🧐</td>
+    <td align="center">✅</td>
     <td align="left"><nobr><code><a href="https://github.com/decs/typeschema/tree/main/packages/arktype">@typeschema/arktype</a></code></nobr></td>
     <td align="right"><a href="https://www.npmjs.com/package/@typeschema/arktype" rel="nofollow"><img src="https://img.shields.io/npm/dw/@typeschema/arktype.svg?label=" alt="npm downloads"></a></td>
   </tr>

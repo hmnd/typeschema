@@ -12,6 +12,11 @@ import {memoize, unsupportedAdapter} from '@typeschema/core';
 
 import {select} from './selector';
 
+const importArktypeSerializationAdapter = memoize(async () => {
+  const {serializationAdapter} = await import('@typeschema/arktype');
+  return serializationAdapter;
+});
+
 const importEffectSerializationAdapter = memoize(async () => {
   const {serializationAdapter} = await import('@typeschema/effect');
   return serializationAdapter;
@@ -53,7 +58,7 @@ const importZodSerializationAdapter = memoize(async () => {
 });
 
 export const serializationAdapter: SerializationAdapter<AdapterResolver> = select({
-  arktype: unsupportedAdapter<AdapterResolvers['arktype']>('@typeschema/arktype'),
+  arktype: async schema => (await importArktypeSerializationAdapter())(schema),
   classValidator: unsupportedAdapter<AdapterResolvers['classValidator']>('@typeschema/class-validator'),
   deepkit: unsupportedAdapter<AdapterResolvers['deepkit']>('@typeschema/deepkit'),
   effect: async schema => (await importEffectSerializationAdapter())(schema),
